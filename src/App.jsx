@@ -1,36 +1,35 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
+import Resultado from "./components/Resultado";
 import "./css/global.css";
 import "./css/style.css";
 
 function App() {
-  // hoot - useState - manipula o estado da variavel
+  //HOOK-useState - Manipula o estado da variavel
 
-  const { peso, setPeso } = useState(0);
-  const { altura, setAltura } = useState(0);
-  const { resultado, setResultado } = useState(0);
-  const { mostrarresultado, setMostrarResultado } = useState(0);
+  const [peso, setPeso] = useState(0);
+  const [altura, setAltura] = useState(0);
+  const [resultado, setResultado] = useState(0);
+  const [mostrarresultado, setMostrarResultado] = useState(false);
 
-  // função calcular imc
-
-  const calcularIMC = () => {
+  //FUNÇÃO CALCULAR IMC
+  const calcularImc = () => {
     const imc = peso / (altura * altura);
     return setResultado(imc.toFixed(2));
   };
-
   useEffect(() => {
     resultado > 0 ? setMostrarResultado(true) : setMostrarResultado(false);
   }, [resultado]);
 
-  // fragment
   return (
+    // fragment
     <div className="container">
       <div className="box">
         <Header />
         <form>
           <div>
             <label htmlFor="altura">
-              <span className="span">(exemplo: 1.80) </span>
+              <span className="span">(exemplo: 1.80)</span>
             </label>
             <input
               type="number"
@@ -39,9 +38,10 @@ function App() {
               onBlur={({ target }) => setAltura(parseFloat(target.value))}
             />
           </div>
+
           <div>
             <label htmlFor="peso">
-              <span className="span">(exemplo: 80) </span>
+              <span className="span">(exemplo: 80)</span>
             </label>
             <input
               type="number"
@@ -51,11 +51,11 @@ function App() {
             />
           </div>
 
-          <button onClick={calcularIMC}>Calcular</button>
+          <button onClick={calcularImc}>Calcular</button>
         </form>
       </div>
-
-      {mostrarResultado && <Resultado resultado={resultado} />}
+      {/* MOSTRA O RESULTADO AO DIGITAR A ALTURA E O PESO */}
+      {mostrarresultado && <Resultado resultado={resultado} />}
     </div>
   );
 }
