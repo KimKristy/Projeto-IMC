@@ -1,0 +1,37 @@
+.resultado{
+    margin-top:30px;
+    width:390px;
+    padding:10px;
+    background:var(--fontColor3);
+    border-radius:20px;
+    text-align:center;
+    color:var(--fontColor1)
+}
+.imcSpan{
+    color:var(--fontColor3)
+}
+.tabela{
+    background:var(--fontColor3);
+    color:var(--fontColor1);
+    margin-top:20px;
+    width:390px;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+    border-spacing:0;
+}
+.tabelaHeader th{
+    border-bottom:2px solid var(--fontColor1);
+    padding:5px;
+}
+.tabelaBody tr td{
+    padding-top:10px;
+}
+
+//responsivdade
+
+@media(max-width:500px){
+    .tabela,.resultado{
+        width:100%;
+    }
+}

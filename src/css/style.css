@@ -1,0 +1,49 @@
+.box{
+    display:flex;
+    flex-direction:column;
+    background:var(--bgColor2);
+    width:400px;
+    height:350px;
+    border-radius:30px;
+    padding:40px;
+}
+form{
+    display:flex;
+    flex-direction:column;
+}
+.span{
+    font-size:12px;
+}
+label{
+    display:flex;
+    margin-bottom:10px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border-radius:15px;
+    outline-color: 1px solid var(--fontColor3);
+    margin-bottom:20px;
+}
+button{
+    border:none;
+    background:var(--fontColor3);
+    color:var(--fontColor1);
+    font-size:1.2rem;
+    border-radius:20px;
+    margin-top:15px;
+    padding:15px;
+    text-transform:uppercase;
+}
+
+@media (max-width:500px){
+    .box{
+        width:100%;
+    }
+    button{
+        margin-top:0;
+    }
+}
