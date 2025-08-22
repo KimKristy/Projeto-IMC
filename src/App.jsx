@@ -1,6 +1,27 @@
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
+import "./css/global.css";
+import "./css/style.css";
 
 function App() {
+  // hoot - useState - manipula o estado da variavel
+
+  const { peso, setPeso } = useState(0);
+  const { altura, setAltura } = useState(0);
+  const { resultado, setResultado } = useState(0);
+  const { mostrarresultado, setMostrarResultado } = useState(0);
+
+  // função calcular imc
+
+  const calcularIMC = () => {
+    const imc = peso / (altura * altura);
+    return setResultado(imc.toFixed(2));
+  };
+
+  useEffect(() => {
+    resultado > 0 ? setMostrarResultado(true) : setMostrarResultado(false);
+  }, [resultado]);
+
   // fragment
   return (
     <div className="container">
